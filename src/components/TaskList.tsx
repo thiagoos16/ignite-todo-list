@@ -19,13 +19,17 @@ export function TaskList() {
 
     let task: Task = {id:1, title:"", isComplete:true};
 
-    task = {
-      id: Math.random() * max,
-      title: newTaskTitle,
-      isComplete: false
-    };
+    if (newTaskTitle.length == 0 ) {
+      alert("O título da task não pode ser vazio");
+    } else {
+      task = {
+        id: Math.random() * max,
+        title: newTaskTitle,
+        isComplete: false
+      };
 
-    setTasks(prevTasks => [...prevTasks, task]);
+      setTasks(prevTasks => [...prevTasks, task]);
+    }
   }
 
   function handleToggleTaskCompletion(id: number) {
